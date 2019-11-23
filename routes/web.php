@@ -28,3 +28,4 @@ Route::resource('category', 'CategoryController');
 Route::get('/categoryStatus/{id}/{status}','CategoryController@status')->name('CategoryStatus');
 Route::resource('products', 'ProductsController');
 Route::get('/IngredienteStatus/{id}/{status}','IngredientsController@status')->name('IngredienteStatus');
+Route::get('/ProductsStatus/{id}/{status}','ProductsController@status')->name('ProductsStatus');

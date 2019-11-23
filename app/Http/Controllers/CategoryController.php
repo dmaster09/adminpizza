@@ -126,7 +126,7 @@ class CategoryController extends Controller
         $category=Category::find($id);
         $category->status=$st;
 
-        if($st!=false){
+        if($st!='true'){
             $mensaje='Desactivada';
         }else{
             $mensaje='Activada';

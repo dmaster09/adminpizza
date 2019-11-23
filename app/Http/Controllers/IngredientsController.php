@@ -115,7 +115,7 @@ class IngredientsController extends Controller
         $ing=Ingredients::find($id);
         $ing->status=$st;
 
-        if($st!='false'){
+        if($st!='true'){
             $mensaje='Desactivado';
         }else{
             $mensaje='Activado';

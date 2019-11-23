@@ -59,11 +59,20 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{{url('/home')}}"><i class="fa fa-home"></i> Inicio</a></li>
-            <li><a href=""><i class="fa fa-image"></i> Banners</a></li>
+            <li><a href="{{url('/home')}}"><i class="fa fa-home"></i> Inicio</a></li>           
             <li><a href="{{url('/category')}}"><i class="fa fa-cog"></i> Categorias</a></li>
             <li><a href="{{url('/ingredientes')}}"><i class="fa fa-cutlery"></i>  Ingredientes</a></li>
             <li><a href="{{url('/products')}}"><i class="fa fa-cube"></i> Productos</a></li>
+             <li>
+              <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Salir</a>
+            
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+              </form>
+
+            </li>
            
           </ul>
          
@@ -78,42 +87,28 @@
               <!-- Menu Toggle Button -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <!-- The user image in the navbar-->
-                <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <img src="{{asset('img/logo_principal.jpg')}}" class="user-image" alt="User Image">
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                 <span class="hidden-xs">IL NURAGHE</span>
               </a>
               <ul class="dropdown-menu">
                 <!-- The user image in the menu -->
                 <li class="user-header">
-                  <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                  <img src="{{asset('img/logo_principal.jpg')}}" class="img-circle" alt="User Image">
 
                   <p>
                     
-                    <small>/small>
+                    <small>PIZZERIA IL NURAGHE</small>
                   </p>
                 </li>
-                <!-- Menu Body -->
-                <li class="user-body">
-                  <div class="row">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </div>
-                  <!-- /.row -->
-                </li>
+               
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Perfil del Usuario</a>
+                    <!--<a href="#" class="btn btn-default btn-flat"><strong>Perfil del Usuario</strong></a>-->
                   </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Cerrar Sesion</a>
+                    <a href="#" class="btn btn-default btn-flat"><strong>Cerrar Sesion </strong></a>
                   </div>
                 </li>
               </ul>
