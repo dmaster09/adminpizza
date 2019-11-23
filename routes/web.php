@@ -34,7 +34,7 @@ Route::get('/', function () {
     
 }
 
-	$col->collapse();
+	
 	
     return view('page',compact('col','category','top'));
 });

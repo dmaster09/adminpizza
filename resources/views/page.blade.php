@@ -39,7 +39,8 @@
      }
     </style>
   </head>
-  <body>
+  <body id="app">
+
   	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 		      <a class="navbar-brand" href="{{url('/')}}">
@@ -61,7 +62,7 @@
 	  </nav>
     <!-- END nav -->
 
-    <section class="home-slider owl-carousel img" style="background-image: url({{url('page/images/bg_1.jpg')}});">
+    <section class="home-slider owl-carousel img" style="background-image: url({{url('page/images/bg_01.jpg')}});">
       <div class="slider-item">
       	<div class="overlay"></div>
         <div class="container">
@@ -102,7 +103,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url(page/images/bg_3.jpg);">
+      <div class="slider-item" style="background-image: url(page/images/bg_02.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -285,20 +286,20 @@
 		          <div class="col-md-12 d-flex align-items-center">
 		            
 		            <div class="tab-content ftco-animate" id="v-pills-tabContent">
-
+                  
                   @foreach($category as $cat)
 		              <div class="tab-pane fade show @if($loop->iteration==1) active @endif" id="v-pills-{{$cat->id}}" role="tabpanel" aria-labelledby="v-pills-{{$cat->id}}-tab">
 		              	<div class="row">
-                      @foreach($col->where('category_id',$cat) as $prod)
+                      @foreach($col as $prod)
 
-                                            
+
 		              		<div class="col-md-4 text-center">
 		              			<div class="menu-wrap">
 		              				<a href="#" class="menu-img img mb-4" style="background-image: url(pizza/pizza_02.jpeg);"></a>
 		              				<div class="text">
-		              					<h3><a href="#">{{ $prod->name }}</a></h3>
+		              					<h3><a href="#"></a></h3>
 		              					<p>Tomate, Mozzarella, Tomate Cherry, Rucula, Queso Palma.</p>
-		              					<p class="price"><span>€{{ $prod->price}}</span></p>
+		              					<p class="price"><span>€ </span></p>
 		              					<!--<p><a href="#" class="btn btn-white btn-outline-white">Add to cart</a></p>-->
 		              				</div>
 		              			</div>
@@ -326,64 +327,7 @@
     </section>
        </section>
 
-   <!-- <section class="ftco-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Recent from blog</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
-              </a>
-              <div class="text py-4 d-block">
-              	<div class="meta">
-                  <div><a href="#">Sept 10, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-              </a>
-              <div class="text py-4 d-block">
-              	<div class="meta">
-                  <div><a href="#">Sept 10, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-              </a>
-              <div class="text py-4 d-block">
-              	<div class="meta">
-                  <div><a href="#">Sept 10, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
+  
 		
 		<section class="ftco-appointment" id="#contact">
 			<div class="overlay"></div>
@@ -491,6 +435,21 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="{{asset('page/js/google-map.js')}}"></script>
   <script src="{{asset('page/js/main.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
     
+var app = new Vue({
+    el: '#app',
+    created(){
+    },  
+
+    data: {   
+    },
+
+    watch: {
+    }
+  });
+  </script>
+
   </body>
 </html>
