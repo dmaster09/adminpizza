@@ -47,7 +47,8 @@ class ProductsController extends Controller
     if ($request->hasFile('image_prod')) {
       $file = $request->file('image_prod');
       //valido formato de imagen
-        $fileName = $request->nombre.'/'.$request->nombre . '.' . $file->getClientOriginalExtension();
+          $cadena = str_replace(' ', '', $request->nombre);
+        $fileName = $cadena.'/'.$cadena . '.' . $file->getClientOriginalExtension();
       
         $path = $request->file('image_prod')->storeAs(
           'public/pizza/',$fileName
@@ -121,8 +122,9 @@ class ProductsController extends Controller
 
     if ($request->hasFile('image_prod')) {
       $file = $request->file('image_prod');
-      //valido formato de imagen
-        $fileName = $request->nombre.'/'.$request->nombre . '.' . $file->getClientOriginalExtension();
+     //valido formato de imagen
+         $cadena = str_replace(' ', '', $request->nombre);
+        $fileName = $cadena.'/'.$cadena . '.' . $file->getClientOriginalExtension();
       
         $path = $request->file('image_prod')->storeAs(
           'public/pizza/',$fileName

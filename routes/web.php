@@ -12,7 +12,31 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+	$category=App\Category::where('status','true')->get();
+    $ing=App\Ingredients::all();
+    $top=App\Products::where('top','on')->take(6)->get();
+	
+	$col=collect();
+	     foreach($category as $cat){
+
+	     $producto=App\Products::where('category_id',$cat->id)->get();
+     
+          foreach ($producto as $key => $prod) {
+
+    	  $res=explode(",",$prod->ingredients);
+          $ingredientes=$ing->whereIn('id',$res);
+
+          $col->push(['producto'=>$prod,'categoria'=>$cat,'ingr'=>$ingredientes]);
+      
+          }       
+    
+    
+}
+
+	$col->collapse();
+	
+    return view('page',compact('col','category','top'));
 });
 
 Auth::routes();
