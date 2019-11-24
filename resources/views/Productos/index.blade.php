@@ -147,7 +147,9 @@
                 <div class="form-group">
                   <label for="exampleInputPassword1">Ingredientes </label>
                   <select class="form-control" name='ingredientes[]'  multiple required="">
-                    <option value="">-seleccione un Items-</option>  
+                    <option value="" disabled="">-seleccione un Items-</option>  
+                    <option value="">No Posee Ingredientes</option>
+
                     @foreach($ing as $ingr)
                     <option value="{{$ingr->id}}">{{$ingr->name}}</option>
                     @endforeach                 
@@ -222,7 +224,8 @@
                 <div class="form-group">
                   <label for="exampleInputPassword1">Ingredientes </label>
                   <select class="form-control" name='ingredientes[]'  multiple required="">
-                    <option value="">-seleccione un Items-</option>  
+                    <option value="" disabled="">-seleccione un Items-</option>  
+                    <option value="">No Posee Ingredientes</option>
                     @foreach($ing as $ingr)
                     <option value="{{$ingr->id}}" <?php if(in_array($ingr->id,explode(',',$prod->ingredients))){ echo "selected";}?> >{{$ingr->name}}</option>
                     @endforeach                 

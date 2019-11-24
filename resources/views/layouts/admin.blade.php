@@ -108,7 +108,12 @@
                     <!--<a href="#" class="btn btn-default btn-flat"><strong>Perfil del Usuario</strong></a>-->
                   </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat"><strong>Cerrar Sesion </strong></a>
+                    <a href="#" class="btn btn-default btn-flat"  onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" ><strong>Cerrar Sesion </strong></a>
+
+                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+              </form>
                   </div>
                 </li>
               </ul>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Pizzeria - Il Nuraghe</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -268,18 +268,16 @@
         </div>
     	</div>
     		<div class="row d-md-flex">
-	    		<div class="col-lg-4 ftco-animate img f-menu-img mb-5 mb-md-0" style="background-image: url(pizza/vista_03.jpeg);">
+		    <div class="col-lg-4 ftco-animate img f-menu-img mb-5 mb-md-0" style="background-image: url({{url('page/pizza/vista_03.jpeg')}});">
 	    		</div>
 	    		<div class="col-lg-8 ftco-animate p-md-5">
 		    		<div class="row">
-		          <div class="col-md-12 nav-link-wrap mb-5">
+		          <div class="col-md-12 co nav-link-wrap mb-5">
 		            <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                   @foreach($category as $cat)
 		              <a class="nav-link @if($loop->iteration==1) active @endif" id="v-pills-{{$cat->id}}-tab" data-toggle="pill" href="#v-pills-{{$cat->id}}" role="tab" aria-controls="v-pills-{{$cat->id}}" aria-selected="true">{{$cat->name}}</a>
 
-                  @endforeach
-
-
+                  @endforeach 
 
 		            </div>
 		          </div>
@@ -288,44 +286,39 @@
 		            <div class="tab-content ftco-animate" id="v-pills-tabContent">
                   
                   @foreach($category as $cat)
-		              <div class="tab-pane fade show @if($loop->iteration==1) active @endif" id="v-pills-{{$cat->id}}" role="tabpanel" aria-labelledby="v-pills-{{$cat->id}}-tab">
+		              <div class="tab-pane fade @if($loop->iteration==1) show active @endif" id="v-pills-{{$cat->id}}" role="tabpanel" aria-labelledby="v-pills-{{$cat->id}}-tab">
 		              	<div class="row">
-                      @foreach($col as $prod)
+                       @foreach($col->where('category_id',$cat->id) as $prod)
 
+                      <div class="col-md-4 text-center" style="max-width: none;">
+                        <div class="menu-wrap">
+                          <a href="#" class="menu-img img mb-4" style="background-image: url({{url('storage/pizza/'.$prod['image'])}});"></a>
+                          <div class="text">
+                            <h3><a href="#">{{$prod['nombre']}}</a></h3>
+                            <p> @foreach($prod['ingr'] as $ingre){{$ingre->name}}, @endforeach
 
-		              		<div class="col-md-4 text-center">
-		              			<div class="menu-wrap">
-		              				<a href="#" class="menu-img img mb-4" style="background-image: url(pizza/pizza_02.jpeg);"></a>
-		              				<div class="text">
-		              					<h3><a href="#"></a></h3>
-		              					<p>Tomate, Mozzarella, Tomate Cherry, Rucula, Queso Palma.</p>
-		              					<p class="price"><span>€ </span></p>
-		              					<!--<p><a href="#" class="btn btn-white btn-outline-white">Add to cart</a></p>-->
-		              				</div>
-		              			</div>
-		              		</div>
+                            </p>
+                            <p class="price"><span>€ {{$prod['price']}}</span></p>
+                            <!--<p><a href="#" class="btn btn-white btn-outline-white">Add to cart</a></p>-->
+                          </div>
+                        </div>
+                      </div>
 
                       @endforeach
 
-		              </div>
-               </div>
+		               </div>
+                </div>
                   @endforeach
 
-		           
-
-
-
-
-
-
-
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-    	</div>
+		             </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
        </section>
+       
 
   
 		

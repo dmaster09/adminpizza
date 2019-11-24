@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Mail;
 
 class CategoryController extends Controller
 {
@@ -147,5 +148,16 @@ class CategoryController extends Controller
           return redirect()->intended(url('/category'))->withInput();
 
 
+    }
+
+
+
+    public function mail($request){
+            $data="";
+          Mail::send('emails.reminder', ['user' => $data], function ($m) use ($user) {
+            $m->from('yendersonhernandez@.com', 'Your Application');
+
+            $m->to('yendersonhernandez@gmail.com', 'yenderson')->subject('Your Reminder!');
+        });
     }
 }
