@@ -13,11 +13,11 @@
 
     Route::get('/', function () {
 
-	$category=App\Category::where('status','true')->get();
+	  $category=App\Category::where('status','true')->get();
     $ing=App\Ingredients::all();
     $top=App\Products::where('top','on')->take(6)->get();
 	
-	$col=collect();
+	     $col=collect();
 	     foreach($category as $cat){
 
 	     $producto=App\Products::where('category_id',$cat->id)->get();
@@ -37,7 +37,7 @@
 
       $col->collapse();	
 	
-       return view('page',compact('col','category','top'));
+       return view('page',compact('col','category','top','ing'));
 });
 
 Auth::routes();

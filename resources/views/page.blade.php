@@ -245,7 +245,15 @@
     					<a href="#" class="img" style="background-image: url({{url('storage/pizza/'.$topping->image)}});"></a>
     					<div class="text p-4">
     						<h3>{{$topping->name}}</h3>
-    						<p>Tomate, Mozzarella, Alcachofas, Jamon York, Champiñones Frescos. </p>
+    						<p>
+                  @foreach($ing->whereIn('id',explode(",",$topping->ingredients)) as $ingretop)
+                              
+                   {{$ingretop->name}}
+                   @if(count($ing->whereIn('id',explode(",",$topping->ingredients)))!=$loop->iteration),@endif
+                  @endforeach
+                                
+
+                </p>
     						<p class="price"><span>€{{$topping->price}}</span> </p>
     					</div>
     				</div>
@@ -295,7 +303,11 @@
                           <a href="#" class="menu-img img mb-4" style="background-image: url({{url('storage/pizza/'.$prod['image'])}});"></a>
                           <div class="text">
                             <h3><a href="#">{{$prod['nombre']}}</a></h3>
-                            <p> @foreach($prod['ingr'] as $ingre){{$ingre->name}}, @endforeach
+                            <p> @foreach($prod['ingr'] as $ingre)
+                              
+                                 {{$ingre->name}} 
+                                 @if(count($prod['ingr'])!=$loop->iteration),@endif
+                                 @endforeach
 
                             </p>
                             <p class="price"><span>€ {{$prod['price']}}</span></p>
@@ -361,7 +373,7 @@
           <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Sobre Nosotros</h2>
-              <p>Somos un restaurante, que se especializa en la comida italiana, dentro de los cuales se encuentran: Pizzas Artesanales, pastas con diferentes tipos de salsas, ensaladas tradicionales y deliciosos postres.</p>
+              <p class="text-justify">Somos un restaurante, que se especializa en la comida italiana, dentro de los cuales se encuentran: Pizzas Artesanales, pastas con diferentes tipos de salsas, ensaladas tradicionales y deliciosos postres.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                
                 <li class="ftco-animate"><a href="https://www.facebook.com/pizzeriailnuraghe3c/"><span class="icon-facebook"></span></a></li>
