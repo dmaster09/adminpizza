@@ -39,7 +39,7 @@
                    <tr>
                   
                  <td>
-                  <img src="{{ asset('storage/pizza/'.$prod->image) }}"  class="img-thumbnail" style="    width: 150px;
+                  <img src="{{ url('productos/pizza/'.$prod->image) }}"  class="img-thumbnail" style="    width: 150px;
                   height: 101px;">
                     <br><br>
                     <button class="btn btn-default"  data-toggle="modal" data-target="#exampleModaledit{{$prod->id}}"><i class="fa fa-edit"></i></button>           

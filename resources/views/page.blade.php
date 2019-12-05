@@ -242,7 +242,7 @@
           @foreach($top as $topping)
           <div class="col-lg-4 d-flex ftco-animate">
     				<div class="services-wrap d-flex">
-    					<a href="#" class="img" style="background-image: url({{url('storage/pizza/'.$topping->image)}});"></a>
+    					<a href="#" class="img" style="background-image: url({{url('productos/pizza/'.$topping->image)}});"></a>
     					<div class="text p-4">
     						<h3>{{$topping->name}}</h3>
     						<p>
@@ -300,7 +300,7 @@
 
                       <div class="col-md-4 text-center" style="max-width: none;">
                         <div class="menu-wrap">
-                          <a href="#" class="menu-img img mb-4" style="background-image: url({{url('storage/pizza/'.$prod['image'])}});"></a>
+                          <a href="#" class="menu-img img mb-4" style="background-image: url({{url('productos/pizza/'.$prod['image'])}});"></a>
                           <div class="text">
                             <h3><a href="#">{{$prod['nombre']}}</a></h3>
                             <p> @foreach($prod['ingr'] as $ingre)

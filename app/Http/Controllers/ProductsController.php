@@ -50,9 +50,11 @@ class ProductsController extends Controller
           $cadena = str_replace(' ', '', $request->nombre);
         $fileName = $cadena.'/'.$cadena . '.' . $file->getClientOriginalExtension();
       
-        $path = $request->file('image_prod')->storeAs(
-          'public/pizza/',$fileName
-        );
+        //$path = $request->file('image_prod')->storeAs(
+        //  'public/pizza/',$fileName
+        //);
+        $path = base_path('public/productos/pizza/'. $cadena.'/');
+        $file->move($path, $fileName);
     }else{
 
         Session::flash('mensaje', 'Introduzca Una Imgen referencial de su producto');
@@ -126,9 +128,9 @@ class ProductsController extends Controller
          $cadena = str_replace(' ', '', $request->nombre);
         $fileName = $cadena.'/'.$cadena . '.' . $file->getClientOriginalExtension();
       
-        $path = $request->file('image_prod')->storeAs(
-          'public/pizza/',$fileName
-        );
+        $path = base_path('public/productos/pizza/'.$cadena.'/');
+        $file->move($path, $fileName);
+
         $Products->image=$fileName;
     }
 
